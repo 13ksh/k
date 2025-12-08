@@ -17,19 +17,20 @@ function decimalToBase62(num) {
   return chars[high] + chars[low];
 }
 window.onload = function() {
-    let asd = "https://is.gd/";
-    console.log(asd);
-    const raw = decodeURIComponent(location.pathname.substring(1)) + "??";
-    console.log(raw);
-    console.log(raw.substring(0, 2));
-    console.log(findWordIndex(words, raw.substring(0, 2)));
+  let asd = "https://is.gd/";
+  const raw = decodeURIComponent(location.pathname.substring(1));
+  const arr = raw.match(/[가-힣]+/g);
+  if(arr.length == 3) {
     asd += decimalToBase62(findWordIndex(words, raw.substring(0, 2)));
-    console.log(asd);
     asd += decimalToBase62(findWordIndex(words, raw.substring(3, 5)));
-    console.log(asd);
     asd += decimalToBase62(findWordIndex(words, raw.substring(6, 8)));
-    console.log(asd);
-    window.location.replace(asd);
+  }
+  else {
+    asd += decimalToBase62(findWordIndex(words, raw.substring(0, 2)));
+    asd += decimalToBase62(findWordIndex(words, raw.substring(2, 4)));
+    asd += decimalToBase62(findWordIndex(words, raw.substring(4, 6)));
+  }
+  window.location.replace(asd);
 };
 </script>
 </body>
