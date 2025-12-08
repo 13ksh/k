@@ -68,11 +68,11 @@ window.onload = function() {
     console.log(asd);
     const raw = decodeURIComponent(location.pathname.substring(1));
     console.log(raw);
-    asd += decimalToBase62(findWordIndex(raw.substring(0, 2)));
+    asd += decimalToBase62(findWordIndex(raw.substring(1, 3)));
     console.log(asd);
-    asd += decimalToBase62(findWordIndex(raw.substring(3, 5)));
+    asd += decimalToBase62(findWordIndex(raw.substring(4, 6)));
     console.log(asd);
-    asd += decimalToBase62(findWordIndex(raw.substring(6, 8)));
+    asd += decimalToBase62(findWordIndex(raw.substring(7, 9)));
     document.getElementById("link").href = asd;
     console.log(asd);
     document.getElementById("result").textContent = asd || "No text in URL";
