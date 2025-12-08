@@ -69,12 +69,12 @@ window.onload = function() {
     const raw = decodeURIComponent(location.pathname.substring(1));
     console.log(raw);
     console.log(raw.substring(0, 2));
-    console.log(findWordIndex(raw.substring(0, 2)));
-    asd += decimalToBase62(findWordIndex(raw.substring(0, 2)));
+    console.log(findWordIndex(words, raw.substring(0, 2)));
+    asd += decimalToBase62(findWordIndex(words, raw.substring(0, 2)));
     console.log(asd);
-    asd += decimalToBase62(findWordIndex(raw.substring(3, 5)));
+    asd += decimalToBase62(findWordIndex(words, raw.substring(3, 5)));
     console.log(asd);
-    asd += decimalToBase62(findWordIndex(raw.substring(6, 8)));
+    asd += decimalToBase62(findWordIndex(words, raw.substring(6, 8)));
     document.getElementById("link").href = asd;
     console.log(asd);
     document.getElementById("result").textContent = asd || "No text in URL";
