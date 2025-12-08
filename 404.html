@@ -61,19 +61,22 @@ console.log(decimalToBase62(temp) + " = ");
 console.log(base62ToDecimal(decimalToBase62(temp)) + " = ");
 console.log(decimalToBase62(base62ToDecimal(decimalToBase62(temp)))); 
 }
-let asd = "https://is.gs/";
 async function shorten() {
 }
 window.onload = function() {
+    let asd = "https://is.gs/";
+    console.log(asd);
     const raw = decodeURIComponent(location.pathname.substring(1));
-
-    
+    console.log(asd);
     asd += decimalToBase62(findWordIndex(raw.substring(0, 2)));
+    console.log(asd);
     asd += decimalToBase62(findWordIndex(raw.substring(3, 5)));
+    console.log(asd);
     asd += decimalToBase62(findWordIndex(raw.substring(6, 8)));
     document.getElementById("link").href = asd;
+    console.log(asd);
     document.getElementById("result").textContent = asd || "No text in URL";
-    console.log("페이지 들어오자마자 실행됨");
+    console.log(asd);
 };
   </script>
 </body>
