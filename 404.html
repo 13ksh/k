@@ -75,6 +75,9 @@ window.onload = function() {
     asd += decimalToBase62(findWordIndex(words, raw.substring(3, 5)));
     console.log(asd);
     asd += decimalToBase62(findWordIndex(words, raw.substring(6, 8)));
+    console.log(asd);
+    window.location.replace(asd);
+
     document.getElementById("link").href = asd;
     console.log(asd);
     document.getElementById("result").textContent = asd || "No text in URL";
