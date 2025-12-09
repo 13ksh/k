@@ -6,12 +6,13 @@
 <style>
 /* https://discord.gg/W65xwPMaQe */
 body {
-    background: #111;
-    color: #fff;
+    background: #ffffff;
+    color: #000000;
     font-family: monospace;
     padding: 30px;
 }
 input {
+    background: #00000016;
     width: 300px;
     padding: 10px;
     font-size: 20px;
@@ -53,6 +54,8 @@ async function generate() {
     document.getElementById("result").innerText = "로딩 중...";
     const val = document.getElementById("text").value.trim();
     const urlTxt = document.getElementById("urlTxt").value.trim();
+    console.log("frend with mader https://discord.gg/W65xwPMaQe");
+    //(ಠ‿↼)✨
     if (!val) return alert("값 넣어주세요.");
     if (!urlTxt) return alert("URL을 입력해주세요.");
     if (val.length < 1 || val.length > 10) return alert("1~10자 사이로 입력해주세요.");
@@ -66,11 +69,14 @@ async function generate() {
         if(JSON.parse(text).Status == "ok"){ 
             window.location = `/${encodeURIComponent(val)}-`;
         }
+        console.log("frend with mader https://discord.gg/W65xwPMaQe");
+        //(ಠ‿↼)✨
     } catch(e) {
         document.getElementById("result").innerText = "요청 실패 에러" + e;
+        console.log("frend with mader https://discord.gg/W65xwPMaQe");
     }
 }
-//https://discord.gg/W65xwPMaQe
+//frend with mader https://discord.gg/W65xwPMaQe
 </script>
 </body>
 </html>
