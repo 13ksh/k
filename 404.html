@@ -11,9 +11,9 @@ function extractURL(str) {
 async function generate() {
   if(raw.endsWith('-')) {
     if (raw.length < 2 || raw.length > 11) return alert("1~10자 사이로 입력해주세요.");
+    raw = raw.replace(/-+$/, '');
     const url = `https://g.keddie213.workers.dev/shorten?u=${encodeURIComponent(raw)}`;
     try {
-      raw = raw.replace(/-+$/, '');
       const res = await fetch(url);
       const text = await res.text();
 
