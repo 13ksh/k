@@ -1,6 +1,6 @@
 <div id="result">요청중...</div>
 <script>
-let raw = decodeURIComponent(location.pathname.substring(1));
+const raw = decodeURIComponent(location.pathname.substring(1));
 function extractURL(str) {
   try {
     return JSON.parse(str).URL;
@@ -11,8 +11,7 @@ function extractURL(str) {
 async function generate() {
   if(raw.endsWith('-')) {
     if (raw.length < 2 || raw.length > 11) return alert("1~10자 사이로 입력해주세요.");
-    raw = raw.replace(/-+$/, '');
-    const url = `https://g.keddie213.workers.dev/shorten?u=${encodeURIComponent(raw)}`;
+    const url = `https://g.keddie213.workers.dev/shorten?u=${encodeURIComponent(raw.replace(/-+$/, ''))}`;
     try {
       const res = await fetch(url);
       const text = await res.text();
