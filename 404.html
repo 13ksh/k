@@ -1,6 +1,6 @@
 <div id="result">요청중...</div>
 <script>
-const raw = decodeURIComponent(location.pathname.substring(1));
+let raw = decodeURIComponent(location.pathname.substring(1));
 function extractURL(str) {
   try {
     return JSON.parse(str).URL;
@@ -9,23 +9,36 @@ function extractURL(str) {
   }
 }
 async function generate() {
-    if (raw.length < 1 || raw.length > 10) return alert("1~10자 사이로 입력해주세요.");
+  if(raw.endsWith('-')) {
+    if (raw.length < 2 || raw.length > 11) return alert("1~10자 사이로 입력해주세요.");
     const url = `https://g.keddie213.workers.dev/shorten?u=${encodeURIComponent(raw)}`;
     try {
-        const res = await fetch(url);
-        const text = await res.text();
+      raw = raw.replace(/-+$/, '');
+      const res = await fetch(url);
+      const text = await res.text();
 
-        document.getElementById("result").innerText = 
-            `입력: ${raw}\n결과: ${text}`;
-        if(extractURL(text) != null) {
-          window.location = extractURL(text);
-        }
+      document.getElementById("result").innerText = `${text}`;
     } catch(e) {
         document.getElementById("result").innerText = "요청 실패 에러" + e;
     }
+    return;
+  }
+  if (raw.length < 1 || raw.length > 10) return alert("1~10자 사이로 입력해주세요.");
+  const url = `https://g.keddie213.workers.dev/shorten?u=${encodeURIComponent(raw)}`;
+  try {
+    const res = await fetch(url);
+    const text = await res.text();
+
+    document.getElementById("result").innerText = 
+        `${text}`;
+    if(extractURL(text) != null) {
+      window.location = extractURL(text);
+    }
+  } catch(e) {
+    document.getElementById("result").innerText = "요청 실패 에러" + e;
+  }
 }
 window.onload = () => {
-  console.log("window.onload");
   generate();
 };
 </script>
