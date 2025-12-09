@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>짧링(짧은링크)</title>
 <style>
-/* https://discord.gg/W65xwPMaQe */
 body {
     background: #ffffff;
     color: #000000;
@@ -38,7 +37,6 @@ button:hover {
     font-size: 22px;
     white-space: pre-wrap;
 }
-/* https://discord.gg/W65xwPMaQe */
 </style>
 </head>
 <body>
@@ -47,16 +45,11 @@ button:hover {
 <input id="text" placeholder="한글 입력 (1~10자)">
 <button onclick="generate()">➡ 변환</button>
 <div id="result"></div>
-<a href="https://x.com/gwonseungh46097" target="_blank">제작자와 친구하기(X)</a><br><br>
-<a href="https://13ksh.github.io/kshc/" target="_blank">kshc editer을 찾고 계신가요?(클릭하여 kshc editer 가기)</a>
 <script>
-//https://discord.gg/W65xwPMaQe
 async function generate() {
     document.getElementById("result").innerText = "로딩 중...";
     const val = document.getElementById("text").value.trim();
     const urlTxt = document.getElementById("urlTxt").value.trim();
-    console.log("frend with mader https://discord.gg/W65xwPMaQe");
-    //(ಠ‿↼)✨
     if (!val) return alert("값 넣어주세요.");
     if (!urlTxt) return alert("URL을 입력해주세요.");
     if (val.length < 1 || val.length > 10) return alert("1~10자 사이로 입력해주세요.");
@@ -64,20 +57,15 @@ async function generate() {
     try {
         const res = await fetch(url);
         const text = await res.text();
-        //https://discord.gg/W65xwPMaQe
         document.getElementById("result").innerText = 
             `${JSON.parse(text).Status}`;
         if(JSON.parse(text).Status == "ok"){ 
             window.location = `/${encodeURIComponent(val)}-`;
         }
-        console.log("frend with mader https://discord.gg/W65xwPMaQe");
-        //(ಠ‿↼)✨
     } catch(e) {
         document.getElementById("result").innerText = "요청 실패 에러" + e;
-        console.log("frend with mader https://discord.gg/W65xwPMaQe");
     }
 }
-//frend with mader https://discord.gg/W65xwPMaQe
 </script>
 </body>
 </html>
